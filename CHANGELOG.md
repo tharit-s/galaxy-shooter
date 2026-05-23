@@ -5,6 +5,15 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [V9.2] — 2026-05-23 — DOCS & DEPLOYMENT NOTES
+
+### Documentation
+- **README**: clarified leaderboard is unavailable on GitHub Pages (static frontend only); added local vs online play instructions with explicit note that gameplay works fully without backend
+- **CLAUDE.md**: added deployment notes section explaining GitHub Pages limitation and path to enable full leaderboard via a Node.js host
+- **CHANGELOG**: all post-V9 fixes (V9.0.1, V9.1) now documented
+
+---
+
 ## [V9.1] — 2026-05-23 — BUG FIXES & GAME OVER POLISH
 
 ### Fixed

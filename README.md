@@ -10,13 +10,17 @@ This project was built during an AWS workshop as a hands-on demonstration of **A
 
 ## Play It
 
-**Instant play** (no server needed):
+**Online (GitHub Pages — no install needed):**
+[▶ https://tharit-s.github.io/galaxy-shooter/src/game.html](https://tharit-s.github.io/galaxy-shooter/src/game.html)
+> Note: leaderboard is disabled on the online version (static hosting only). All gameplay works normally.
+
+**Local — game only (no leaderboard):**
 ```bash
 open src/game.html
 ```
 Just open the file in any browser. Everything is self-contained.
 
-**Full stack** (with leaderboard):
+**Local — full stack (game + leaderboard):**
 ```bash
 node src/server.js &
 # open http://localhost:3000/src/game.html
@@ -70,6 +74,9 @@ Pick 1 of 3 random upgrades after each wave:
 - Scores saved to `src/scores.json`, top 100 kept
 - Name entry on game over → RESTART / SCORES / HOME buttons
 - Works via nginx proxy or direct localhost
+
+> **⚠️ Leaderboard not available on GitHub Pages**
+> The live demo at `tharit-s.github.io` is hosted as a static site (frontend only). The leaderboard requires a Node.js backend (`src/server.js`) which is not deployed. The game shows "SCORES UNAVAILABLE" gracefully and is fully playable without it. To run the full stack locally: `node src/server.js` then open `http://localhost:3000/src/game.html`.
 
 ---
 

@@ -117,6 +117,13 @@ cp src/game.html archive/v9.html
 Then edit `src/game.html`. This keeps rollback easy.
 Current version in archive: v1, v2, v3, v4, v5, v6-pre, v7, v8. Next archive will be v9.
 
+## Deployment notes
+
+**GitHub Pages (live demo):** `https://tharit-s.github.io/galaxy-shooter/src/game.html`
+Static frontend only — leaderboard (`server.js`) is not deployed. The game handles this gracefully: `LeaderboardUI` shows "SCORES UNAVAILABLE" after a timeout and gameplay continues normally.
+
+**To enable the full leaderboard:** deploy `src/server.js` on a Node.js host (e.g. Render.com free tier) and the game's `LeaderboardUI` will connect automatically via `window.location.origin + '/api/scores'`.
+
 ## Things to never do
 - Do not edit anything in `archive/` — it's history
 - Do not add external script tags or CDN dependencies
