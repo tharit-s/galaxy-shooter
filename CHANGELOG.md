@@ -5,6 +5,38 @@ Format follows [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ---
 
+## [V9.1] — 2026-05-23 — BUG FIXES & GAME OVER POLISH
+
+### Fixed
+- **Leaderboard not opening on first tap (mobile)** — button rects were only stored after a draw frame; pre-computed with `computeGameOverBtns()` / `computeLeaderboardOverlayBtns()` so hit-testing works immediately on first tap
+- **Game restarting instead of opening leaderboard** — `onStart` now guards against `NameInput.submitted`, preventing synthesized browser click events from restarting while the post-game screen is shown
+- **Leaderboard overlay blank (loading race)** — `LeaderboardUI` now tracks `loading` / `fetchFailed` flags; `drawLeaderboard()` shows "LOADING SCORES…" while the fetch is in progress, "SCORES UNAVAILABLE" on network error, "NO SCORES YET" if empty
+
+### Added
+- **HOME button on game over screen** — purple ⌂ button lets players return to the start screen and pick a different mode without restarting; works on both the post-game screen and the leaderboard overlay
+- **`goHome()` function** — cleanly resets all game-over state and returns to `STATE.START`
+- **Leaderboard loading strings** — `lbLoading`, `lbEmpty`, `lbError` keys added in both EN and TH
+
+### Improved
+- **Game over buttons enlarged** — RESTART / SCORES / HOME buttons increased to 110×50px (from 90×34px) to meet Apple's 44pt minimum tap target on mobile
+- **`onStart` guard** — added `!NameInput.submitted` check so tapping anywhere on the game-over screen after submission no longer accidentally restarts the game
+
+---
+
+## [V9.0.1] — 2026-05-23 — GAMEPLAY FIXES & UPGRADES COMPLETE
+
+### Fixed
+- **Ricochet upgrade** — `player._ricochet` flag was set by UpgradeSystem but bounce logic was never wired; bullets now reflect off left/right screen edges once (`_bounced` flag prevents infinite loop)
+- **Bullet Damage upgrade** — `player._bulletDamage` was ignored by `fireSpread()` and `fireHoming()`; both now read `player._bulletDamage || 1` so the upgrade applies correctly
+- **Double Score wave reset** — `player._doubleScore` persisted across waves; now cleared at the start of `initWarp()` and `doWarpAfterUpgrade()` so it correctly lasts only one wave
+
+### Added
+- **Railgun Split upgrade** — picking the railgun cooldown upgrade twice now fires 3 beams (offsets −100/0/+100px); boss takes up to 15 damage per shot; `drawRailgunFlash()` renders all beams
+- **Mobile soft keyboard fix** — `visualViewport.resize` listener slides canvas up when soft keyboard opens during name entry; `clearCanvasShift()` resets on submit or restart; `CSS transition: transform 0.15s ease` for smooth animation
+- **Start screen redesign** — top-anchored layout with weapon chips, mode tabs, and dividers; no more text overlap on mobile
+
+---
+
 ## [V9] — 2026-05-23 — DUAL LANGUAGE EDITION
 
 ### Added

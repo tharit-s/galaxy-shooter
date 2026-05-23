@@ -38,12 +38,14 @@ src/          ← active code (edit here)
   scores.json ← persisted leaderboard data (top 100 scores)
 
 archive/      ← read-only history (never edit)
-  v1.html     ← original base (V1)
-  v2.html     ← bullet-hell update (V2)
-  v3.html     ← pseudo-3D update (V3)
-  v4.html     ← Chaos Edition snapshot (V6)
-  v5.html     ← leaderboard + mobile (V5)
-  v8.html     ← Thai Edition snapshot (V8)
+  v1.html       ← original base (V1)
+  v2.html       ← bullet-hell update (V2)
+  v3.html       ← pseudo-3D update (V3)
+  v4.html       ← systems architecture refactor (V4)
+  v5.html       ← leaderboard + mobile (V5)
+  v6-pre.html   ← pre-Chaos Edition snapshot
+  v7.html       ← mobile polish (V7)
+  v8.html       ← Thai Edition snapshot (V8)
   enemies-patch.js  ← enemy AI reference from V3 era
   polish-patch.js   ← particle/audio reference from V3 era
 
@@ -110,13 +112,13 @@ Each system is a self-contained object — read the section headers:
 ## Versioning convention
 When making a significant change, save a copy before editing:
 ```bash
-cp src/game.html archive/v7.html
+cp src/game.html archive/v9.html
 ```
-Then edit `src/game.html`. This keeps rollback easy without requiring git.
-Current version in archive: v1, v2, v3, v4, v5, v7, v8. Next archive will be v10.
+Then edit `src/game.html`. This keeps rollback easy.
+Current version in archive: v1, v2, v3, v4, v5, v6-pre, v7, v8. Next archive will be v9.
 
 ## Things to never do
 - Do not edit anything in `archive/` — it's history
 - Do not add external script tags or CDN dependencies
 - Do not split the game into multiple files (single-file is a feature)
-- Do not add a build step or package.json
+- Do not add a build step
