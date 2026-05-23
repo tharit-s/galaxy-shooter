@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl -s -o /dev/null -w *)",
+      "Bash(curl -s --max-time * -o /dev/null -w *)",
+      "Bash(curl -s http*)",
+      "Bash(node --check *)",
+      "Bash(sed -n * /workshop/src/game.html)"
+    ]
+  }
+}

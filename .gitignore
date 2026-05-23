@@ -1,0 +1,6 @@
+src/scores.json
+.DS_Store
+Thumbs.db
+*.swp
+.claude/settings.local.json
+.claude/agent-memory/
