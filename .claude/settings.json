@@ -1,11 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "Bash(curl -s -o /dev/null -w *)",
-      "Bash(curl -s --max-time * -o /dev/null -w *)",
-      "Bash(curl -s http*)",
-      "Bash(node --check *)",
-      "Bash(sed -n * /workshop/src/game.html)"
+      "Bash(node -e *)",
+      "Bash(curl -s -o /dev/null -w * http://localhost*)",
+      "Bash(sudo cp /workshop/src/game.html /var/www/html/game.html)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(git push*)",
+      "Bash(git status*)",
+      "Bash(git log*)",
+      "Bash(git diff*)"
     ]
   }
 }
